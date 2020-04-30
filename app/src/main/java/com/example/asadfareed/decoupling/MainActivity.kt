@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -17,11 +18,15 @@ class MainActivity : AppCompatActivity() {
         loadFragment(Fragment1(),R.id.fragment1)
         loadFragment(Fragment2(),R.id.fragment2)
         // init interface com
-        
         btn_enter.setOnClickListener {
-            interfaceCom.setText(et_text.text.toString())
+            Log.i("Sent",et_text.text.toString())
             interfaceCom.setText(et_text.text.toString())
         }
+    }
+
+    override fun onAttachFragment(fragment: Fragment) {
+        super.onAttachFragment(fragment)
+        interfaceCom = fragment as  ComInterface
     }
 
     fun loadFragment(fragment: Fragment, fragment1: Int) {

@@ -1,6 +1,7 @@
 package com.example.asadfareed.decoupling
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -21,6 +22,7 @@ class Fragment1() : Fragment() ,ComInterface{
     }
 
     override fun setText(text: String) {
+        Log.i("Text",text)
     fragment1.tv_text.text=text
     }
 }
