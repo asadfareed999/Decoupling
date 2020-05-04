@@ -10,23 +10,24 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var interfaceCom:ComInterface
+    private lateinit var  callback: ComInterface
+    private lateinit var  callback2: ComInterface
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        val fragmentOne=Fragment1()
+        val fragmentTwo=Fragment2()
         loadFragment(Fragment1(),R.id.fragment1)
         loadFragment(Fragment2(),R.id.fragment2)
+        callback=fragmentOne
+        callback2=fragmentTwo
         // init interface com
         btn_enter.setOnClickListener {
             Log.i("Sent",et_text.text.toString())
-            interfaceCom.setText(et_text.text.toString())
+            callback.setText(et_text.text.toString())
+            callback2.setText(et_text.text.toString())
         }
-    }
-
-    override fun onAttachFragment(fragment: Fragment) {
-        super.onAttachFragment(fragment)
-        interfaceCom = fragment as  ComInterface
     }
 
     fun loadFragment(fragment: Fragment, fragment1: Int) {
