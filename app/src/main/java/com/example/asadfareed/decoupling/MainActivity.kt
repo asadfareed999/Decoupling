@@ -18,8 +18,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         val fragmentOne=Fragment1()
         val fragmentTwo=Fragment2()
-        loadFragment(Fragment1(),R.id.fragment1)
-        loadFragment(Fragment2(),R.id.fragment2)
+       loadFragment(fragmentOne,R.id.fragment1)
+       loadFragment(fragmentTwo,R.id.fragment2)
         callback=fragmentOne
         callback2=fragmentTwo
         // init interface com

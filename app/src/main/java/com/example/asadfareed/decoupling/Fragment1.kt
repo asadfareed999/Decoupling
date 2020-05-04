@@ -8,6 +8,7 @@ import android.view.TextureView
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.LiveData
@@ -30,10 +31,12 @@ class Fragment1 : Fragment() ,ComInterface{
 
     override fun setText(text: String) {
         Log.i("Text",text)
-        textView.text=text
+        //textView=this.requireView().findViewById(R.id.tv_text)
+        //textView.text=text
         /*val textView=this.view?.findViewById<TextView>(R.id.tv_text)
         textView?.tv_text?.text=text*/
-       /* val fragmentManager=this.activity?.supportFragmentManager
-        fragmentManager?.findFragmentById(R.id.fragment1)?.tv_text?.text=text*/
+        Toast.makeText(activity," "+text,Toast.LENGTH_LONG).show()
+        val fragmentManager=this.activity?.supportFragmentManager
+        fragmentManager?.findFragmentById(R.id.fragment1)?.tv_text?.text=text
     }
 }
